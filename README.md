@@ -21,4 +21,26 @@ If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Lar
 - `composer require laravel/sail --dev`
 - `php artisan sail:install`
 - `ubuntue`
+- `cd` to home 
+- `vim .bashrc` 
+- `alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'`
+- `cd ../../mnt/c/wamp/www/laravel-tailwind-movies/`
+- `sail up`
+- `sail artisan migrate`
+- add phpmyadimn service on port 9000 in docker-compose.yml
+```sh
+phpmyadmin:
+        depends_on:
+            - mysql
+        image: phpmyadmin/phpmyadmin
+        environment:
+            - PMA_HOST=mysql
+            - PORT=3306
+        networks:
+            - sail
+        ports:
+            - 9000:80
+```
+- `sail up`
+
 
