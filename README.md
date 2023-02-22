@@ -41,6 +41,9 @@ phpmyadmin:
         ports:
             - 9000:80
 ```
-- `sail up`
+- `sail up` 
+- phpmyadmin root and pw from .env `sail` and `password`
+- now brows database with phpmyadmin `http://localhost:9000`
+- 
 
 
