@@ -91,4 +91,14 @@ module.exports = {
 }
 ```
 - `npm run watch` in container terminal or terminal to run webpack to optimize using tailwind
-- 
+- now we can use its style sheet in our layout.blade.php
+- we can check that in welcome blade
+remove custome blades such as
+```sh
+        <style>
+            body {
+                font-family: 'Nunito', sans-serif;
+            }
+        </style>
+```
+- then add link for stylesheet tailwind generated ` <link rel="stylesheet" href="{{ asset('/css/app.css') }}">`
