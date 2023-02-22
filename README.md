@@ -44,6 +44,7 @@ phpmyadmin:
 - `sail up` 
 - phpmyadmin root and pw from .env `sail` and `password`
 - now brows database with phpmyadmin `http://localhost:9000`
-- 
+- Installing [Tailwind CSS](https://tailwindcss.com/docs/installation)
+- from terminal of web container in network sail terminal `npm install -D tailwindcss`
 
 
