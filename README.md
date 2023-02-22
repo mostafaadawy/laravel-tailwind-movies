@@ -44,7 +44,51 @@ phpmyadmin:
 - `sail up` 
 - phpmyadmin root and pw from .env `sail` and `password`
 - now brows database with phpmyadmin `http://localhost:9000`
-- Installing [Tailwind CSS](https://tailwindcss.com/docs/installation)
-- from terminal of web container in network sail terminal `npm install -D tailwindcss`
-
-
+# Tailwind Css
+tailwind can be used with deferent platform we apply it with laravel and we will use it with `webpack.mix`
+- Installing [Tailwind CSS](https://tailwindcss.com/docs/guides/laravel#mix) via `npm`
+- from terminal of web container in network sail terminal `npm install -D tailwindcss postcss autoprefixer`
+- Add Tailwind to your Laravel Mix configuration In your webpack.mix.js file, add tailwindcss as a PostCSS plugin.
+- we `"require(tailwindcss)"` to be generated in the output of webpack, so we edit it from
+```sh
+mix.js('resources/js/app.js', 'public/js')
+    .postCss('resources/css/app.css', 'public/css', [
+        //
+    ]);
+```
+- to be 
+```sh
+mix.js("resources/js/app.js", "public/js")
+  .postCss("resources/css/app.css", "public/css", [
+    require("tailwindcss"),
+  ]);
+```
+- `npx tailwindcss init -p` that creates js file
+- Configure your template paths Add the paths to all of your template files in your `tailwind.config.js` file edit the next code 
+```sh
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+- to be 
+```sh
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./resources/**/*.blade.php",
+    "./resources/**/*.js",
+    "./resources/**/*.vue",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+- `npm run watch` in container terminal or terminal to run webpack to optimize using tailwind
+- 
